@@ -77,7 +77,7 @@ NODE_RESPONSE=$(curl --silent --show-error \
     -d "{
         \"description\":\"SAP MDK Build ${GITHUB_SHA}\",
         \"nodeName\":\"${TMS_NODE_NAME}\",
-        \"contentType\":\"ZIP\",
+        \"contentType\":\"APP\",
         \"storageType\":\"FILE\",
         \"entries\":[
             {
