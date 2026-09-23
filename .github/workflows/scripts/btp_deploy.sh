@@ -25,8 +25,8 @@ cf api "$cf_api_url"
 cf auth "$cf_user" "$cf_password"
 
 echo '############## Deploy MTAR ##############'
-cf target -o "$cf_org" -s "$cf_space"
-mdk deploy --target cf
+# cf target -o "$cf_org" -s "$cf_space"
+# mdk deploy --target cf
 
 ###############################################################################
 # Export to Cloud Transport Management
