@@ -1,0 +1,14 @@
+{
+    "Service": "/deepankar_demo/Services/com_sap_edm_sampleservice_v4.service",
+    "DefiningRequests": [{
+        "Name": "Customers",
+        "Query": "Customers"
+    }],
+    "_Type": "Action.Type.ODataService.Initialize",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText": "Downloading...",
+    "ActionResult": {
+        "_Name": "init"
+    },
+    "OnFailure": "/deepankar_demo/Actions/com_sap_edm_sampleservice_v4/Service/InitializeOfflineFailureMessage.action"
+}

@@ -1,0 +1,40 @@
+{
+	"Credential": "cf",
+	"Template": {
+		"Id": "@ext-mdkvsc-npm-dev/generator-mdk",
+		"Name": "Base",
+		"Version": "0.0.1"
+	},
+	"CF": {
+		"Target": "https://api.cf.eu20-001.hana.ondemand.com",
+		"Organization": "7577d20f-b23c-4f54-8bda-5da9ce464fcf",
+		"Space": "1e5ef6c4-bfaa-4ae0-95e8-aae0f4dbe100"
+	},
+	"MobileService": {
+		"Type": "standard",
+		"AdminAPI": "https://mobile-service-cockpit-api.cfapps.eu20.hana.ondemand.com/cockpit/v1/org/7577d20f-b23c-4f54-8bda-5da9ce464fcf/space/1e5ef6c4-bfaa-4ae0-95e8-aae0f4dbe100",
+		"AppId": "com.sap.mobile.platform.cards",
+		"Destination": [
+			"com.sap.edm.sampleservice.v4"
+		]
+	},
+	"Onboarding": {
+		"Schema": "sapmobilesvcs",
+		"TimeZone": "UTC",
+		"URL": "sapmobilesvcs://?AppId=com.sap.mobile.platform.cards&ClientId=061cd675-6663-4a6a-92c4-78ff29d84695&ServerUrl=https://klm-cs-qa-001-mobapp1-com-sap-mobile-platform-cards.cfapps.eu20-001.hana.ondemand.com&SapCloudPlatformEndpoint=https://klm-cs-qa-001-mobapp1-com-sap-mobile-platform-cards.cfapps.eu20-001.hana.ondemand.com&AuthorizationEndpointUrl=https://klm-cs-qa-001-mobapp1-com-sap-mobile-platform-cards.cfapps.eu20-001.hana.ondemand.com/oauth2/api/v1/authorize&RedirectUrl=https://klm-cs-qa-001-mobapp1-com-sap-mobile-platform-cards.cfapps.eu20-001.hana.ondemand.com&TokenUrl=https://klm-cs-qa-001-mobapp1-com-sap-mobile-platform-cards.cfapps.eu20-001.hana.ondemand.com/oauth2/api/v1/token&multiUser=false"
+	},
+	"LCAP": {
+		"FullName": "",
+		"Service": [],
+		"sourceTemplate": {
+			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+			"version": "1.40.12"
+		}
+	},
+	"Build": {
+		"SourceMap": true,
+		"TSTarget": "es6",
+		"WMF": true,
+		"Platform": "iOS & Android"
+	}
+}
