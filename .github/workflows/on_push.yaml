@@ -1,0 +1,43 @@
+name: SAP MDK CI/CD
+run-name: Deploy and Transport SAP MDK Application
+on:
+  push:
+    branches:
+      - "main"
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Make the script executable
+        run: chmod +x ./.github/workflows/scripts/btp_deploy.sh
+
+      - name: Build, Deploy and Export to TMS
+        env:
+          # CF
+          cf_user: ${{ secrets.CF_USER }}
+          cf_password: ${{ secrets.CF_PASSWORD }}
+          cf_api_url: ${{ vars.CF_API_URL }}
+          cf_org: ${{ vars.CF_ORG }}
+          cf_space: ${{ vars.CF_SPACE }}
+
+          # TMS
+          TMS_CLIENT_ID: ${{ secrets.TMS_CLIENT_ID }}
+          TMS_CLIENT_SECRET: ${{ secrets.TMS_CLIENT_SECRET }}
+          TMS_UAA_URL: ${{ vars.TMS_UAA_URL }}
+          TMS_URI: ${{ vars.TMS_URI }}
+          TMS_NODE_NAME: ${{ vars.TMS_NODE_NAME }}
+
+        run: ./.github/workflows/scripts/btp_deploy.sh
