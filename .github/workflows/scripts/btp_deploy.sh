@@ -26,7 +26,7 @@ cf auth "$cf_user" "$cf_password"
 
 echo '############## Deploy MTAR ##############'
 cf target -o "$cf_org" -s "$cf_space"
-mdk deploy --target cf --name "com.sap.mobile.platform.cards"
+# mdk deploy --target cf --name "com.sap.mobile.platform.cards"
 
 ###############################################################################
 # Export to Cloud Transport Management
