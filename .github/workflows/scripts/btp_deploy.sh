@@ -20,7 +20,7 @@ npm install -g @sap/mdk-tools
 echo '############## Build MTAR ##############'
 # mdk build --target zip
 mdk build --target mta --name deepankar_demo --project . --dist .build/mta --forceUpdate
-mbt build --source .build/mta -t "$PWD/.build" --mtar demosampleapp.mtar
+npx mbt build --source .build/mta -t "$PWD/.build" --mtar demosampleapp.mtar
 
 echo '############## Login to Cloud Foundry ##############'
 cf api "$cf_api_url"
