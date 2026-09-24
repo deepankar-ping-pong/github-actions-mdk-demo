@@ -18,7 +18,9 @@ echo '############## Install SAP MDK Tools ##############'
 npm install -g @sap/mdk-tools
 
 echo '############## Build MTAR ##############'
-mdk build --target zip
+# mdk build --target zip
+mdk build --target mta --name deepankar_demo --project . --dist .build/mta --forceUpdate
+mbt build --source .build/mta -t "$PWD/.build" --mtar demosampleapp.mtar
 
 echo '############## Login to Cloud Foundry ##############'
 cf api "$cf_api_url"
@@ -52,7 +54,7 @@ UPLOAD_RESPONSE=$(curl --silent --show-error \
     -X POST \
     "${TMS_URI}/v2/files/upload" \
     -H "Authorization: Bearer ${TOKEN}" \
-    -F "file=@.build/uploadBundle.zip" \
+    -F "file=@.build/demosampleapp.mtar" \
     -F "namedUser=github-actions")
 
 echo "$UPLOAD_RESPONSE"
@@ -77,7 +79,7 @@ NODE_RESPONSE=$(curl --silent --show-error \
     -d "{
         \"description\":\"SAP MDK Build ${GITHUB_SHA}\",
         \"nodeName\":\"${TMS_NODE_NAME}\",
-        \"contentType\":\"APP\",
+        \"contentType\":\"MTA\",
         \"storageType\":\"FILE\",
         \"entries\":[
             {
